@@ -45,7 +45,7 @@ We will now create a basic *Users* table that we will use to store the users tha
 ```sql
 CREATE TABLE Users (
     id SERIAL PRIMARY KEY,
-    email TEXT,
+    username TEXT,
     password TEXT
 );
 ```
@@ -66,3 +66,12 @@ app.use(express.json());
 // Server Listening
 app.listen(3005, () => console.log('Server Running'));
 ```
+
+Let's get our client and server talking to each other by defining a proxy. In your package.json, add:
+
+```json
+"main": "server/index.js",
+"proxy": "http://localhost:3005",
+```
+
+Proxy will tell the client how to talk to the server and main will tell nodemon what file to run for our server.
