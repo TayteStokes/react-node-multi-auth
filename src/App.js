@@ -67,7 +67,7 @@ class App extends Component {
           <input type="password" placeholder="password" name="password" onChange={this.handleInputChange}/>
           <button onClick={this.loginUser}>Login</button>
           <button onClick={this.registerUser}>Register</button>
-          <button>Gmail</button>
+          <a href="/auth/google">Sign In with Google</a>
           <button>Twitter</button>
           <button>Github</button>
           <button>Facebook</button>

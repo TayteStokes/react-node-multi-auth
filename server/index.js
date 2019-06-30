@@ -6,6 +6,7 @@ const massive = require('massive');
 const bcrypt = require('bcrypt');
 // Passport Strategies
 const LocalStrategy = require('passport-local').Strategy;
+const GoogleStrategy = require('passport-google-oauth').OAuthStrategy;
 
 // ENV VARIABLE
 const {

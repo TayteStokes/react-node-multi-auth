@@ -75,3 +75,32 @@ Let's get our client and server talking to each other by defining a proxy. In yo
 ```
 
 Proxy will tell the client how to talk to the server and main will tell nodemon what file to run for our server.
+
+## Passport
+We will be using a couple of different strategies to authenticate a user using Passport. First let's get passport configured in our server.
+
+First we need to require passport into our server
+```javascript
+const express = require('express');
+```
+
+Then we need to initialize passport using the middlware passport provides.
+```javascript
+app.use(passport.initialize());
+```
+
+Then we will need to setup our serialization and deserialization so our user will be remembered on each sub request after authentication.
+```javascript
+passport.serializeUser(function (user, done) {
+    done(null, user.id);
+});
+
+passport.deserializeUser(function (id, done) {
+    done(null, id);
+});
+```
+
+Passport should now be setup and good to go. The next thing that we will need is to create the actual strategies that will be used on the authentication requests.
+
+### Strategies
+Strategies are what is used in Passport to setup specific ways to authenticate a user into your application.
