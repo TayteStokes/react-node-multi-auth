@@ -46,7 +46,11 @@ We will now create a basic *Users* table that we will use to store the users tha
 CREATE TABLE Users (
     id SERIAL PRIMARY KEY,
     username TEXT,
-    password TEXT
+    password TEXT,
+    googleId TEXT,
+    twitterId TEXT,
+    githubId TEXT,
+    facebookId TEXT
 );
 ```
 
@@ -104,3 +108,33 @@ Passport should now be setup and good to go. The next thing that we will need is
 
 ### Strategies
 Strategies are what is used in Passport to setup specific ways to authenticate a user into your application.
+
+#### Google Strategy
+The Client Id and Client Secret needed to authenticate with Google can be set up from the Google Developers Console.
+
+Visit: [Google Dev Console](https://console.developers.google.com "google dev console")
+
+You will need to walk throught the proccess of signing up your application with the Google Dev Console to get your Client ID and Client Secret
+
+First create a new application by selecting *Select a project* drop down in the top left then select *New Project* in the top right of the model that pops up.
+![Google Dev Dash](images/google_dash.png)
+![Google New Proj Pop Up](images/google_new_proj.png)
+
+After creating your new project, click the *Enable API Services* button at the top to add *Google+ API*
+![Google+ API](images/google+_api.png)
+
+After enabling the Google+ API, it will tell you that you need to create credentials to use it. Click the create credentials button in the top right of your dashboard
+
+![Google create cred](images/create_cred.png)
+
+Make sure to fill out the form just like the following image
+
+![Google Form](images/google_form_one.png)
+
+The second part of the form is asking what client application can access the auth form. This will just be http://localhost:3000 for now.
+
+Now you're application is created in google, so click on it so we can get our credentials need to access it.
+
+![Google App](images/google_app_one.png)
+
+Now at the top of the page, you should be able to see you're ClientID and Client Secret. Copy both of those and put them into your `.env` file.

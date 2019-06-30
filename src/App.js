@@ -62,16 +62,16 @@ class App extends Component {
     console.log(this.state)
     return (
       <div className="app-container">
-        <form className="form-container">
+        <div className="form-container">
           <input type="username" placeholder="username" name="username" onChange={this.handleInputChange}/>
           <input type="password" placeholder="password" name="password" onChange={this.handleInputChange}/>
           <button onClick={this.loginUser}>Login</button>
           <button onClick={this.registerUser}>Register</button>
-          <a href="/auth/google">Sign In with Google</a>
+          <a href="http://localhost:3005/auth/google">Sign In with Google</a>
           <button>Twitter</button>
           <button>Github</button>
           <button>Facebook</button>
-        </form>
+        </div>
       </div>
     )
   }
