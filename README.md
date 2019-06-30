@@ -3,6 +3,12 @@ This repo was made to show example of using PassportJS in a Node server to setup
 
 ## Setup
 
+### Client
+We first need to create our appplication, we will make a CRA. In your terminal run:
+```bash
+create-react-app 'name of your app'
+```
+
 ### Database
 The first thing we need to do is setup a cloud-based PostgreSQL database using Heroku.
 
@@ -21,7 +27,7 @@ After creating your new app, select the resources tab in the top left then searc
 ![Adding Postgres](images/add_postgres.png)
 
 Select the *Hobby Dev - Free* provision.
-![Free Provision](images/free_provision.png)
+![Free Provision](images/free-provision.png)
 
 After adding *Heroku Postgres* select it under the add-ons section. This should open a new tab that will take you to the home dashboard for the new database. After routing to the new dashboard page, select the *Settings* tab in the top left. Once there, select the *View Credentials* button on the right. This will take us to a page to find our connection string.
 
@@ -42,4 +48,21 @@ CREATE TABLE Users (
     email TEXT,
     password TEXT
 );
+```
+
+### Server
+Create a basic Node and Express Server.
+
+```javascript
+// Packages
+const express = require('express');
+
+// App Setup
+const app = express();
+
+// Middleware
+app.use(express.json());
+
+// Server Listening
+app.listen(3005, () => console.log('Server Running'));
 ```

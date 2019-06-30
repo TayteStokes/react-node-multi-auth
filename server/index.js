@@ -21,3 +21,7 @@ app.use(passport.initialize());
 
 
 /* --- Passport --- */
+
+
+// Server Listening
+app.listen(3005, () => console.log('Server Running'));
