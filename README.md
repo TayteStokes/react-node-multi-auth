@@ -1,2 +1,45 @@
 # React Node PostgreSQL Passport Multi Auth Examples
 This repo was made to show example of using PassportJS in a Node server to setup authentication using multiple platforms. Local auth, which uses an email and password that the user provides. Gmail, where a user can use their Gmail account to authenticate. Twitter, where a user will use their twitter credentials to authenticate. Github, where a user uses their Github account to authenticate. Facebook, where a user uses their Facebook credentials.
+
+## Setup
+
+### Database
+The first thing we need to do is setup a cloud-based PostgreSQL database using Heroku.
+
+Visit: [Heroku](https://dashboard.heroku.com/apps "Heroku App Dashboard")
+
+In the top right, select the *New* dropdown menu and select the first option *Create new app*.
+
+![Heroku App Dashboard](images/heroku_dash.png)
+
+Then fill in the name for your new Heroku application.
+
+![Heroku New App](images/new_heroku_app.png)
+
+After creating your new app, select the resources tab in the top left then search for the *Heroku Postgres* add-on.
+
+![Adding Postgres](images/add_postgres.png)
+
+Select the *Hobby Dev - Free* provision.
+![Free Provision](images/free_provision.png)
+
+After adding *Heroku Postgres* select it under the add-ons section. This should open a new tab that will take you to the home dashboard for the new database. After routing to the new dashboard page, select the *Settings* tab in the top left. Once there, select the *View Credentials* button on the right. This will take us to a page to find our connection string.
+
+![View Credentials](images/view_credentials.png)
+
+Once there, copy the URI connection string
+
+![URI Connection String](images/uri_connection.png)
+
+Now open up SQLtabs and we will create our database schema here.
+
+Paste the URI connection string that we copied from Heroku into the top of SQLtabs. Make sure that you add the query *?ssl=true* to the end of the connection string to allow access to talk to this database.
+
+We will now create a basic *Users* table that we will use to store the users that we will authenticate.
+```sql
+CREATE TABLE Users (
+    id SERIAL PRIMARY KEY,
+    email TEXT,
+    password TEXT
+);
+```
